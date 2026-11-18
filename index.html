@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<!-- إضافة min-h-screen وتفعيل flex مع justify-center و items-center لتوسيط المحتوى -->
+<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center p-4">
+
+    <!-- عنصر عرض الرسائل (خطأ أو نجاح) -->
+    <div id="msgContainer" class="w-full max-w-md mb-4"></div>
+
+    <!-- نموذج حجز الموعد مع تصميم بسيط ونظيف -->
+    <form onsubmit="event.preventDefault(); createAppointment();" class="bg-white p-6 rounded-xl shadow-md w-full max-w-md flex flex-col gap-4">
+        
+        <div>
+            <label for="clinic" class="block mb-1 font-semibold text-gray-700">العيادة:</label>
+            <select id="clinic" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>اختر العيادة</option>
+                <option value="باطنة">عيادة الباطنة</option>
+                <option value="أسنان">عيادة الأسنان</option>
+                <option value="أطفال">عيادة الأطفال</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="day" class="block mb-1 font-semibold text-gray-700">اليوم:</label>
+            <select id="day" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>اختر اليوم</option>
+                <option value="السبت">السبت</option>
+                <option value="الأحد">الأحد</option>
+                <option value="الإثنين">الإثنين</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="time" class="block mb-1 font-semibold text-gray-700">الوقت:</label>
+            <select id="time" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>اختر الوقت</option>
+                <option value="05:00 PM">05:00 PM</option>
+                <option value="07:00 PM">07:00 PM</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="patientName" class="block mb-1 font-semibold text-gray-700">اسم المريض:</label>
+            <input 
+                name="patientName" 
+                id="patientName" 
+                type="text" 
+                placeholder="اسم المريض" 
+                aria-label="اسم المريض" 
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+        </div>
+
+        <div>
+            <label for="mobileNumber" class="block mb-1 font-semibold text-gray-700">رقم الهاتف:</label>
+            <input 
+                name="mobileNumber" 
+                id="mobileNumber" 
+                type="tel" 
+                placeholder="رقم الهاتف" 
+                aria-label="رقم الهاتف" 
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 mt-2 cursor-pointer">
+            حجز الموعد
+        </button>
+    </form>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
